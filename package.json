@@ -1,0 +1,38 @@
+{
+  "name": "layoutexp",
+  "description": "Experimental graphical object layout using phsyics simulation.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/MichaelJWebster/LayoutExp",
+  "author": {
+    "name": "Michael Webster",
+    "email": "mikewobbler@gmail.com",
+    "url": "michaeljwebster.github.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MichaelJWebster/LayoutExp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MichaelJWebster/LayoutExp/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/MichaelJWebster/LayoutExp/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/layoutexp",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt": "~0.4.5"
+  },
+  "keywords": []
+}
