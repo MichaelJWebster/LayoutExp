@@ -251,7 +251,7 @@ Use the composite design pattern with an abstract base class lComponent, with
 subclasses lAtom and lContainer.
 
 #+NAME: UML_D
-#+begin_src plantuml :file tryout.png
+#+begin_src plantuml :file component.png
 @startuml
 class 2dVector {
 + float x
@@ -349,7 +349,7 @@ techniques being used.
 Define an abstract Shape class, and a concrete svg subclass.
 
 #+NAME: UML_Shape
-#+begin_src plantuml :file tryout.png
+#+begin_src plantuml :file shape.png
 @startuml
 class Shape {
 .. Pure Virtual Functions ..
@@ -395,10 +395,6 @@ higher order polynomial terms, and combinations of terms.
 
 * TODO Requirements for layout.
   SCHEDULED: <2016-02-02 Tue>
-
+  
 * DONE Research new classes in javascript.
 
-
-
-#+results:
-file:tryout.png
