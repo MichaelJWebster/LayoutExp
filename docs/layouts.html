@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>layouts</title>
+<!-- 2016-02-03 Wed 22:44 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Michael Webster" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">layouts</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Create a force layout for javascript</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Time and motion</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1. Equations of motion</a></li>
+<li><a href="#sec-1-1-2">1.1.2. Acceleration</a></li>
+<li><a href="#sec-1-1-3">1.1.3. Velocity</a></li>
+<li><a href="#sec-1-1-4">1.1.4. Displacement / position</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">1.2. Sums of forces</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1. Algorithm 1</a></li>
+<li><a href="#sec-1-2-2">1.2.2. Algorithm 2</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3. Containers and atoms</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. UML</a>
+<ul>
+<li><a href="#sec-2-1">2.1. Composite layout object UML</a></li>
+<li><a href="#sec-2-2">2.2. Abstract shape class</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. Alternative approach - think about later.</a></li>
+<li><a href="#sec-4">4. <span class="todo TODO">TODO</span> Requirements for layout.</a></li>
+<li><a href="#sec-5">5. <span class="done DONE">DONE</span> Research new classes in javascript.</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Create a force layout for javascript</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Elements have forces applied to them and move until the forces on them are
+in balance, or sum to 0. There should also <b>probably</b> be some friction applied
+for each element.
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Time and motion</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Elements receive a tick message to indicate that time has passed and a new
+calculation must be done based on:
+</p>
+
+<ul class="org-ul">
+<li>current position
+</li>
+<li>forceIn
+</li>
+<li>current velocity
+</li>
+<li>current acceleration
+</li>
+<li>mass
+</li>
+<li>charge?
+</li>
+<li>friction
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> Equations of motion</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+<b>Displacement:</b> \[r = r(t)\]
+<b>Velocity:</b> \[v = \frac{dr}{dt}\]
+<b>Acceleration:</b> \[a = \frac{dv}{dt} = \frac{d^{2}r}{dt^{2}}\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> Acceleration</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+The resultant acceleration of a particle/element in response to some force is
+found by adding the current acceleration to the acceleration that results from
+applying the force to an object with the given mass.
+</p>
+
+<p>
+So, for example, if the particle has these properties:
+</p>
+<ul class="org-ul">
+<li>a0 = initial acceleration = ((x . xa) (y . ya))
+</li>
+<li>mass = M
+</li>
+</ul>
+
+<p>
+and a force:
+</p>
+<ul class="org-ul">
+<li>F = ((x . xF) (y . yF))
+</li>
+</ul>
+
+<p>
+(where xa and xF are the x component of the current acceleration and applied
+force respectively, and ya and yF are similar values in the y direction), then
+the resultant acceleration will be:
+</p>
+
+<p>
+\[Resultant \ Acceleration = \frac{1}{M} \times F + a0 \]
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp" id="acceleration">(<span style="color: #8ac6f2; font-weight: bold;">defun</span> <span style="color: #cae682;">addVectors</span> (a b)
+ <span style="color: #95e454;">"Add vectors a and b together."</span>
+(<span style="color: #8ac6f2; font-weight: bold;">let</span> (
+    (xVal (+ (cdr (assoc 'x a)) (cdr (assoc 'x b))))
+    (yVal (+ (cdr (assoc 'y a)) (cdr (assoc 'y b))))
+    )
+    <span style="color: #99968b;">;; </span><span style="color: #99968b;">Note use of back tick and comma to force evaluation of xVal and yVal</span>
+    <span style="color: #99968b;">;; </span><span style="color: #99968b;">in the assoc list.</span>
+    `((x . ,xVal)
+     (y . ,yVal))))
+
+(<span style="color: #8ac6f2; font-weight: bold;">defun</span> <span style="color: #cae682;">accel</span> (force mass currentAccel)
+ <span style="color: #95e454;">"Calculate the acceleration of a body with mass == mass, and a current</span>
+<span style="color: #95e454;">  acceleration of currentAccel after force has been applied to it."</span>
+    (<span style="color: #8ac6f2; font-weight: bold;">let</span> (
+          (na `((x . ,(/ (cdr (assoc 'x force)) (float mass)))
+                (y . ,(/ (cdr (assoc 'y force)) (float mass)))))
+         )
+        (addVectors na currentAccel)
+))
+
+<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set the value of the applied force.</span>
+(setq f0 '((x . 5) (y . -5)))
+<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set the value of the initial acceleration.</span>
+(setq ca '((x . 3) (y . 10)))
+<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set the body's mass.</span>
+(setq m 10)
+<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set newAccel to be the resultant acceleration of the body with initial</span>
+<span style="color: #99968b;">;; </span><span style="color: #99968b;">acceleration == ca, mass == m, and force applied == f0.</span>
+(setq newAccel (accel f0 m ca))
+
+<span style="color: #99968b;">;; </span><span style="color: #99968b;">Print out some results.</span>
+(setq mess
+    (format <span style="color: #95e454;">"&lt;p&gt;f0.x == %f N, f0.y == %f N\n&lt;/p&gt;"</span>
+         (cdr (assoc 'x f0)) (cdr (assoc 'y f0))))
+(setq mess
+    (concat 
+        mess
+        (format <span style="color: #95e454;">"&lt;p&gt;current acceleration x == %f m/s2, y == %f m/s2\n&lt;/p&gt;"</span>
+             (cdr (assoc 'x ca)) (cdr (assoc 'y ca)))))
+(setq mess
+    (concat
+        mess
+        (format <span style="color: #95e454;">"&lt;p&gt;Mass = %f kg\n&lt;/p&gt;"</span> m)))
+
+
+(message 
+    (format <span style="color: #95e454;">"%s&lt;p&gt;Resultant acceleration: x = %f y = %f\n&lt;/p&gt;"</span>
+        mess (cdr (assoc 'x newAccel)) (cdr (assoc 'y newAccel))))
+</pre>
+</div>
+
+<p>f0.x == 5.000000 N, f0.y == -5.000000 N
+</p><p>current acceleration x == 3.000000 m/s2, y == 10.000000 m/s2
+</p><p>Mass = 10.000000 kg
+</p><p>Resultant acceleration: x = 3.500000 y = 9.500000
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> Velocity</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+Velocity at some period &Delta; t after the present is given by:
+</p>
+
+<p>
+\[ v(t + \Delta t) = v_{0} + \int_{t}^{t + \Delta t}a(t) dt \]
+</p>
+
+<p>
+If we use the formula F = ma, then \(a = \frac{F}{m}\). Also, as we're sampling
+time periods, we can assume that F is constant over the period from t \(\rightarrow\)
+&Delta; t, and so we get:
+</p>
+
+<p>
+\[ v(t + \Delta t) = v_{0} + \int_{t}^{t + \Delta t}\frac{F}{m} dt \]
+</p>
+
+<p>
+\[ = v_{0} + \frac{F * \Delta t}{m} = v_{0} + a \times \Delta t \]
+</p>
+
+<p>
+As discussed above, we're calculating the new acceleration of an element based
+on a force applied to the element and initial conditions of the element at a
+time t. The question is whether to calculate the new velocity instantly,
+in which case we're setting the new velocity for "now" as the velocity
+we'd achieve at &Delta; t, or to calculate the new velocity based on
+the current values of acceleration and current velocity at the end of the
+time period &Delta; t.
+</p>
+
+<p>
+I'm choosing the second alternative. This means that before we begin our
+calculation of a new acceleration due to an applied force, we need to
+calculate the velocity.
+</p>
+
+<p>
+So, assuming we've set a new acceleration at time t, then we can calculate
+the new velocity at time t + &Delta; t as follows:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp" id="velocity">(<span style="color: #8ac6f2; font-weight: bold;">defun</span> <span style="color: #cae682;">mulVector</span> (vec scal)
+ <span style="color: #95e454;">"Multiply vector vec by scalar scal."</span>
+    `((x . ,(* scal (cdr (assoc 'x vec))))
+      (y . ,(* scal (cdr (assoc 'y vec))))))
+
+(<span style="color: #8ac6f2; font-weight: bold;">defun</span> <span style="color: #cae682;">velocity</span> (v0 delta_t a)
+ <span style="color: #95e454;">"Calculate the velocity after delta_t of an object with initial velocity v0</span>
+<span style="color: #95e454;"> experiencing an acceleration of a."</span>
+    (addVectors v0 (mulVector a delta_t)))
+
+<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set an initial value for the velocity.</span>
+(setq v0 '((x . 5) (y . -5)))
+<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set a time delta.</span>
+(setq delta_t (/ (float 1) (float 10)))
+
+<span style="color: #99968b;">;; </span><span style="color: #99968b;">Calculate the velocity of a body with initial velocity v0, experiencing an</span>
+<span style="color: #99968b;">;; </span><span style="color: #99968b;">acceleration of newAccel, after time delta_t.</span>
+(velocity v0 delta_t newAccel)
+</pre>
+</div>
+
+((x . 5.35) (y . -4.05))
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-4" class="outline-4">
+<h4 id="sec-1-1-4"><span class="section-number-4">1.1.4</span> Displacement / position</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+Each element will have an initial position. This will be some place in a
+container, possibly arbitrary, or perhaps ordered within some other set
+of elements.
+</p>
+
+<p>
+The position of an element at time = t + &Delta; t, will be the position of the
+element at time t, + the velocity at time t multiplied by &Delta; t. So:
+</p>
+
+<p>
+\[p(t + \Delta t) = p(t) + v(t) \times \Delta t \]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Sums of forces</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Suppose we have a system containing 10 particles. For each particle we need to
+answer the following questions:
+</p>
+
+<ol class="org-ol">
+<li>What is the force exerted on this particle by all the other particles?
+</li>
+<li>What is the force exterted on every other particle by this particle?
+</li>
+</ol>
+
+<p>
+Answering the second question actually answers the first, as the force that
+particle a exerts on particle b is exactly the same as the force that particle
+b exerts on particle a.
+</p>
+
+<p>
+Suppose that the force exerted by this particle on it's neighbouring particles
+is just the force of gravity. Then all we need to know is the distance between
+this particle and the next to know the force that is being exerted on the
+next particle by this one, and to also know the force exerted on this particle
+by the next particle.
+</p>
+</div>
+
+<div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> Algorithm 1</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+So, a simple algorithm to find all the forces exerted on all the particles
+would be:
+</p>
+
+<ol class="org-ol">
+<li>Begin with all particles in a list called particles:
+</li>
+<li>Pop a particle from the particles list and call it current
+</li>
+<li>For each particle p in the particle list, work out the force between
+current and p.
+</li>
+<li>Add that force to total force in current
+</li>
+<li>Add the force to total force in p - in the opposite direction,
+</li>
+<li>if there are more particles goto 3
+</li>
+<li>place current into a list called processed, and goto 2.
+</li>
+</ol>
+
+<p>
+At the end of this algorithm, each particle should have a calculated
+total force applied to them. At this point it is possible to use that
+resultant force to calculate the new acceleration, velocity and position.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> Algorithm 2</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+If we're simulating gravity or electrostatic charge in our system, then
+the force applied between A and B will be based solely on the distance
+between the two particles, and the charge or mass of A and B.
+</p>
+
+<p>
+NOT SURE!
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Containers and atoms</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Elements are either atoms, or containers for other elements.
+</p>
+
+<p>
+Atoms:
+</p>
+<ul class="org-ul">
+<li>have a mass,
+</li>
+<li>have a shape,
+</li>
+<li>have a position,
+</li>
+<li>have a velocity,
+</li>
+<li>have an  acceleration,
+</li>
+<li>have an applied force.
+
+<p>
+The mass of an atom is considered to all be situated at it's (x, y) position.
+</p>
+</li>
+</ul>
+
+<p>
+A container:
+</p>
+<ul class="org-ul">
+<li>has a mass that is  the sum of all the masses of it's contained elements,
+</li>
+<li>has a position - maybe the centre of mass,
+</li>
+<li>has a velocity,
+</li>
+<li>has an acceleration,
+</li>
+<li>has an applied force
+</li>
+</ul>
+
+<p>
+Containers also can apply forces to the elements they contain, so that contained
+elements are constrained to be inside the container. The forces within a container
+should be fields, emanating from the container's boundaries.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> UML</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Composite layout object UML</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Use the composite design pattern with an abstract base class lComponent, with
+subclasses lAtom and lContainer.
+</p>
+
+
+<div class="figure">
+<p><img src="tryout.png" alt="tryout.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Abstract shape class</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+lAtom objects contain a abstract Shape class. The details of the
+GraphicalObject implementation and operation are dependent on the graphics
+techniques being used.
+</p>
+
+<p>
+Define an abstract Shape class, and a concrete svg subclass.
+</p>
+
+
+<div class="figure">
+<p><img src="tryout.png" alt="tryout.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Alternative approach - think about later.</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Model the layout problem as a minimization problem, where the task is to
+minimize the resultant force on each particle.
+</p>
+
+<p>
+Use gradient descent to find a &theta; vector that when mulitplied by
+polynomial factors generated from the x and y position, produces an
+x and y coordinate that mimimises the resultant force on the particle.
+</p>
+
+<p>
+For particles layed out over a single dimension, perhaps with their
+x component constant, you'd only need the linear factors y and
+possibly x in their feature set. For 2-dimensional layouts, you'd need
+higher order polynomial terms, and combinations of terms.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> Requirements for layout.</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> <span class="done DONE">DONE</span> Research new classes in javascript.</h2>
+<div class="outline-text-2" id="text-5">
+
+<div class="figure">
+<p><img src="tryout.png" alt="tryout.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Michael Webster</p>
+<p class="date">Created: 2016-02-03 Wed 22:44</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

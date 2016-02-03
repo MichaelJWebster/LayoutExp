@@ -245,6 +245,11 @@ should be fields, emanating from the container's boundaries.
 
 * UML
 
+** Composite layout object UML
+
+Use the composite design pattern with an abstract base class lComponent, with
+subclasses lAtom and lContainer.
+
 #+NAME: UML_D
 #+begin_src plantuml :file tryout.png
 @startuml
@@ -332,6 +337,45 @@ __ private data __
  -lComponent[] children
 }
 lContainer o--> lComponent : has
+@enduml
+#+end_src
+
+** Abstract shape class
+
+lAtom objects contain a abstract Shape class. The details of the
+GraphicalObject implementation and operation are dependent on the graphics
+techniques being used.
+
+Define an abstract Shape class, and a concrete svg subclass.
+
+#+NAME: UML_Shape
+#+begin_src plantuml :file tryout.png
+@startuml
+class Shape {
+.. Pure Virtual Functions ..
++ void updateShape()
++ void moveTo(2dVector pos, float time)
++ void removeShape()
++ void addShape(context)
++ void hideShape()
+== Getter and Setter for pComponent.
++ void setParentComponent()
++ lComponent getParentComponent()
+__ private data __
+- lComponent pComponent
+}
+
+class SvgShape {
+.. Overridden Virtual Functions ..
++ void updateShape()
++ void moveTo(2dVector pos, float time)
++ void removeShape()
++ void addShape(context)
++ void hideShape()
+}
+
+Shape <|-- SvgShape
+@enduml
 #+end_src
   
 
