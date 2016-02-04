@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>layouts</title>
-<!-- 2016-02-03 Wed 22:44 -->
+<!-- 2016-02-04 Thu 00:14 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Michael Webster" />
@@ -301,55 +301,55 @@ the resultant acceleration will be:
 
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp" id="acceleration">(<span style="color: #8ac6f2; font-weight: bold;">defun</span> <span style="color: #cae682;">addVectors</span> (a b)
- <span style="color: #95e454;">"Add vectors a and b together."</span>
-(<span style="color: #8ac6f2; font-weight: bold;">let</span> (
+<pre class="src src-emacs-lisp" id="acceleration">(defun addVectors (a b)
+ "Add vectors a and b together."
+(let (
     (xVal (+ (cdr (assoc 'x a)) (cdr (assoc 'x b))))
     (yVal (+ (cdr (assoc 'y a)) (cdr (assoc 'y b))))
     )
-    <span style="color: #99968b;">;; </span><span style="color: #99968b;">Note use of back tick and comma to force evaluation of xVal and yVal</span>
-    <span style="color: #99968b;">;; </span><span style="color: #99968b;">in the assoc list.</span>
+    ;; Note use of back tick and comma to force evaluation of xVal and yVal
+    ;; in the assoc list.
     `((x . ,xVal)
      (y . ,yVal))))
 
-(<span style="color: #8ac6f2; font-weight: bold;">defun</span> <span style="color: #cae682;">accel</span> (force mass currentAccel)
- <span style="color: #95e454;">"Calculate the acceleration of a body with mass == mass, and a current</span>
-<span style="color: #95e454;">  acceleration of currentAccel after force has been applied to it."</span>
-    (<span style="color: #8ac6f2; font-weight: bold;">let</span> (
-          (na `((x . ,(/ (cdr (assoc 'x force)) (float mass)))
-                (y . ,(/ (cdr (assoc 'y force)) (float mass)))))
-         )
-        (addVectors na currentAccel)
+(defun accel (force mass currentAccel)
+ "Calculate the acceleration of a body with mass == mass, and a current
+  acceleration of currentAccel after force has been applied to it."
+    (let (
+	  (na `((x . ,(/ (cdr (assoc 'x force)) (float mass)))
+		(y . ,(/ (cdr (assoc 'y force)) (float mass)))))
+	 )
+	(addVectors na currentAccel)
 ))
 
-<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set the value of the applied force.</span>
+;; Set the value of the applied force.
 (setq f0 '((x . 5) (y . -5)))
-<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set the value of the initial acceleration.</span>
+;; Set the value of the initial acceleration.
 (setq ca '((x . 3) (y . 10)))
-<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set the body's mass.</span>
+;; Set the body's mass.
 (setq m 10)
-<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set newAccel to be the resultant acceleration of the body with initial</span>
-<span style="color: #99968b;">;; </span><span style="color: #99968b;">acceleration == ca, mass == m, and force applied == f0.</span>
+;; Set newAccel to be the resultant acceleration of the body with initial
+;; acceleration == ca, mass == m, and force applied == f0.
 (setq newAccel (accel f0 m ca))
 
-<span style="color: #99968b;">;; </span><span style="color: #99968b;">Print out some results.</span>
+;; Print out some results.
 (setq mess
-    (format <span style="color: #95e454;">"&lt;p&gt;f0.x == %f N, f0.y == %f N\n&lt;/p&gt;"</span>
-         (cdr (assoc 'x f0)) (cdr (assoc 'y f0))))
+    (format "&lt;p&gt;f0.x == %f N, f0.y == %f N\n&lt;/p&gt;"
+	 (cdr (assoc 'x f0)) (cdr (assoc 'y f0))))
 (setq mess
     (concat 
-        mess
-        (format <span style="color: #95e454;">"&lt;p&gt;current acceleration x == %f m/s2, y == %f m/s2\n&lt;/p&gt;"</span>
-             (cdr (assoc 'x ca)) (cdr (assoc 'y ca)))))
+	mess
+	(format "&lt;p&gt;current acceleration x == %f m/s2, y == %f m/s2\n&lt;/p&gt;"
+	     (cdr (assoc 'x ca)) (cdr (assoc 'y ca)))))
 (setq mess
     (concat
-        mess
-        (format <span style="color: #95e454;">"&lt;p&gt;Mass = %f kg\n&lt;/p&gt;"</span> m)))
+	mess
+	(format "&lt;p&gt;Mass = %f kg\n&lt;/p&gt;" m)))
 
 
 (message 
-    (format <span style="color: #95e454;">"%s&lt;p&gt;Resultant acceleration: x = %f y = %f\n&lt;/p&gt;"</span>
-        mess (cdr (assoc 'x newAccel)) (cdr (assoc 'y newAccel))))
+    (format "%s&lt;p&gt;Resultant acceleration: x = %f y = %f\n&lt;/p&gt;"
+	mess (cdr (assoc 'x newAccel)) (cdr (assoc 'y newAccel))))
 </pre>
 </div>
 
@@ -409,23 +409,23 @@ the new velocity at time t + &Delta; t as follows:
 
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp" id="velocity">(<span style="color: #8ac6f2; font-weight: bold;">defun</span> <span style="color: #cae682;">mulVector</span> (vec scal)
- <span style="color: #95e454;">"Multiply vector vec by scalar scal."</span>
+<pre class="src src-emacs-lisp" id="velocity">(defun mulVector (vec scal)
+ "Multiply vector vec by scalar scal."
     `((x . ,(* scal (cdr (assoc 'x vec))))
       (y . ,(* scal (cdr (assoc 'y vec))))))
 
-(<span style="color: #8ac6f2; font-weight: bold;">defun</span> <span style="color: #cae682;">velocity</span> (v0 delta_t a)
- <span style="color: #95e454;">"Calculate the velocity after delta_t of an object with initial velocity v0</span>
-<span style="color: #95e454;"> experiencing an acceleration of a."</span>
+(defun velocity (v0 delta_t a)
+ "Calculate the velocity after delta_t of an object with initial velocity v0
+ experiencing an acceleration of a."
     (addVectors v0 (mulVector a delta_t)))
 
-<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set an initial value for the velocity.</span>
+;; Set an initial value for the velocity.
 (setq v0 '((x . 5) (y . -5)))
-<span style="color: #99968b;">;; </span><span style="color: #99968b;">Set a time delta.</span>
+;; Set a time delta.
 (setq delta_t (/ (float 1) (float 10)))
 
-<span style="color: #99968b;">;; </span><span style="color: #99968b;">Calculate the velocity of a body with initial velocity v0, experiencing an</span>
-<span style="color: #99968b;">;; </span><span style="color: #99968b;">acceleration of newAccel, after time delta_t.</span>
+;; Calculate the velocity of a body with initial velocity v0, experiencing an
+;; acceleration of newAccel, after time delta_t.
 (velocity v0 delta_t newAccel)
 </pre>
 </div>
@@ -604,7 +604,7 @@ subclasses lAtom and lContainer.
 
 
 <div class="figure">
-<p><img src="tryout.png" alt="tryout.png" />
+<p><img src="component.png" alt="component.png" />
 </p>
 </div>
 </div>
@@ -625,7 +625,7 @@ Define an abstract Shape class, and a concrete svg subclass.
 
 
 <div class="figure">
-<p><img src="tryout.png" alt="tryout.png" />
+<p><img src="shape.png" alt="shape.png" />
 </p>
 </div>
 </div>
@@ -665,18 +665,11 @@ higher order polynomial terms, and combinations of terms.
 
 <div id="outline-container-sec-5" class="outline-2">
 <h2 id="sec-5"><span class="section-number-2">5</span> <span class="done DONE">DONE</span> Research new classes in javascript.</h2>
-<div class="outline-text-2" id="text-5">
-
-<div class="figure">
-<p><img src="tryout.png" alt="tryout.png" />
-</p>
-</div>
-</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Michael Webster</p>
-<p class="date">Created: 2016-02-03 Wed 22:44</p>
+<p class="date">Created: 2016-02-04 Thu 00:14</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
