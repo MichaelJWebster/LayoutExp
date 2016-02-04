@@ -40,7 +40,7 @@ and a force:
 force respectively, and ya and yF are similar values in the y direction), then
 the resultant acceleration will be:
 
-\[Resultant \ Acceleration = \frac{1}{M} \times F + a0 \]
+\[ Resultant \ Acceleration = \frac{1}{M} \times F + a0 \]
 
 #+NAME: acceleration
 #+BEGIN_SRC emacs-lisp :results value html :exports both :session motion
